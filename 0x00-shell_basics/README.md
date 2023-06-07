@@ -7,3 +7,5 @@ script 5-listfilesdigitonly : ls dir contents ,hidden files  with long format , 
 script 6-firstdirectory : creates directory my_first_directory in /tmp/
 script 7-movethatfile : Move the file betty from /tmp/ to /tmp/my_first_directory
 script 8-firstdelete : delete /tmp/my_first_directory/betty
+script 9-firstdirdeletion: Delete the directory my_first_directory that is in the /tmp directory
+
