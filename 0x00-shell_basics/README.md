@@ -6,4 +6,4 @@ script 4-listmorefiles: display current directory contents , including hidden fi
 script 5-listfilesdigitonly : ls dir contents ,hidden files  with long format , user a group with numerical
 script 6-firstdirectory : creates directory my_first_directory in /tmp/
 script 7-movethatfile : Move the file betty from /tmp/ to /tmp/my_first_directory
-
+script 8-firstdelete : delete /tmp/my_first_directory/betty
