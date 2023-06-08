@@ -6,5 +6,6 @@ script 4-empty: Write a script that creates an empty file called hello
 script 5-execute : Write a script that adds execute permission to the owner of the file hello
 script 6-multiple_permissions : Write a script that adds execute permission to the owner and the group owner, and read permission to other users, to the file hello
 script 7-everybody : Write a script that adds execution permission to the owner, the group owner and the other users, to the file hello
+script 8-James_Bond : Owner: no permission at all  , Group: no permission at all , Other users: all the permissions  to file hello
 
 
