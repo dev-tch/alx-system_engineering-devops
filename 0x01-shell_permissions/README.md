@@ -12,5 +12,6 @@ script 10-mirror_permissions : change permission of file same as other file
 script 11-directories_permissions  : Create a script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users
 script 12-directory_permissions :  create dir with permision
 scrip 13-change_group : change group of file
+script 100-change_owner_and_group : Write a script that changes the owner to vincent and the group owner to staff for all the files and directories in the working directory
 
 
