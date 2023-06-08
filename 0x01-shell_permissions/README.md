@@ -8,5 +8,6 @@ script 6-multiple_permissions : Write a script that adds execute permission to t
 script 7-everybody : Write a script that adds execution permission to the owner, the group owner and the other users, to the file hello
 script 8-James_Bond : Owner: no permission at all  , Group: no permission at all , Other users: all the permissions  to file hello
 script 9-John_Doe :  chmod with this format : -rwxr-x-wx
+script 10-mirror_permissions : change permission of file same as other file
 
 
