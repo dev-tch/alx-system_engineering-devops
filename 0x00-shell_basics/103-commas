@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" ./ ../ | cat - <(ls -Ap1 | grep -vE "\.$|\.\.$") | sort -n -t- -k3 | tr '\n' ', ' | sed 's/,$/\n/'
+ls -xamp
