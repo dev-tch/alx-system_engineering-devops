@@ -5,3 +5,4 @@
 - script 4-global_variables : Create a script that lists environment variables
 - script 5-local_variables : Create a script that lists all local variables and environment variables, and functions
 - script 6-create_local_variable : Create a script that creates a new local variable BEST School
+- script 7-create_global_variable : Create a script that creates a new global variable Name: BEST Value: School
