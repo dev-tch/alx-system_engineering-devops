@@ -1,0 +1,2 @@
+#!/bin/bash
+nl -i1 -w1 -s ":" | grep -e "[13579]:" | cut -d ":" -f 2
