@@ -22,3 +22,5 @@
 - script 21-reverse : Write a script that reverse its input
 - script 22-users_and_homes : Write a script that displays all users and their home directories, sorted by users Based on the the /etc/passwd file
 - script 100-empty_casks Write a command that finds all empty files and directories in the current directory and all sub-directories
+- script 101-gifs : rite a script that lists all the files with a .gif extension in the current directory and all its subdirectories
+- script 102-acrostic : Create a script that decodes acrostics that use the first letter of each line
