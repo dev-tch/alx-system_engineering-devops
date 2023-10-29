@@ -14,6 +14,8 @@ stop_process() {
   if [ -f /var/run/my_process.pid ]; then
     PID=$(cat /var/run/my_process.pid)
     kill "$PID"
+    # Wait for the process to stop
+    wait "$PID"
     rm -f /var/run/my_process.pid
     echo "manage_my_process stopped"
   else
