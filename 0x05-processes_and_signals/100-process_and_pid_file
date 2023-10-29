@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 # bash script run infeinitely + handle signals
 file="/var/run/myscript.pid"
-if [ -e $file ];then
-	pid=$(cat "$file")
-	if ps -p "$pid" > /dev/null;then
-		# the script il already running 
-		exit 1
-	fi
-fi
 
 # update or create
 echo "$$" > $file
@@ -20,4 +13,5 @@ trap 'rm "$file"' SIGQUIT SIGTERM
 while true;do
 	# Displays To infinity and beyond indefinitely
 	echo "To infinity and beyond"
+	sleep 2
 done
