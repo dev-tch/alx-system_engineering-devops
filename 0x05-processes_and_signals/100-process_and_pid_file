@@ -3,12 +3,12 @@
 file="/var/run/myscript.pid"
 
 # update or create
-echo "$$" > $file
+sudo bash -c 'echo "$$" > $file'
 
 # handle signals
-trap 'echo "I hate the kill command"' SIGTERM
+trap 'sudo rm -f "$file"; exit' SIGQUIT
+trap 'sudo rm -f "$file"; echo "I hate the kill command"; exit' SIGTERM
 trap 'echo "Y U no love me?!"' SIGINT
-trap 'rm "$file"' SIGQUIT SIGTERM
 
 while true;do
 	# Displays To infinity and beyond indefinitely
