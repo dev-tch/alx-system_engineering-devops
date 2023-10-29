@@ -2,13 +2,24 @@
 # bash script run infeinitely + handle signals
 file="/var/run/myscript.pid"
 
-# update or create
-sudo bash -c 'echo "$$" > $file'
+cleanup() {
+    echo "I hate the kill command"
+    if [ -e "$file" ];then
+    	rm -f $file
+    fi
+    exit 0
+}
+
+interrupt() {
+    echo "Y U no love me?!"
+}
 
 # handle signals
-trap 'sudo rm -f "$file"; exit' SIGQUIT
-trap 'sudo rm -f "$file"; echo "I hate the kill command"; exit' SIGTERM
-trap 'echo "Y U no love me?!"' SIGINT
+trap 'cleanup' SIGTERM SIGQUIT
+trap 'interrupt' SIGINT
+
+# update or create
+echo "$$" > $file
 
 while true;do
 	# Displays To infinity and beyond indefinitely
