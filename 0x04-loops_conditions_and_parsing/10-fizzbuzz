@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays numbers from 1 to 100
+
+for ((i=1; i<=100; i++))
+do
+	# number multiple 3 and 5 disp FizzBuzz
+	if (( i % 3 == 0)) && (( i % 5 == 0 )) 
+	then
+		echo "FizzBuzz"
+	elif ((i % 3 == 0 )) # number multiple 3
+	then
+		echo "Fizz"
+	elif (( i % 5 == 0 )) # number multiple 5
+	then 
+		echo "Buzz"
+	else
+		echo "$i" 
+	fi
+done
