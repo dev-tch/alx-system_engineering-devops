@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# init variable nb_times
+nb_times=0
+# until  loop to display "Best School" 10 times
+until  [ $nb_times -gt  10 ]
+do
+	echo "Best School"
+	nb_times=$((nb_times + 1))
+done
