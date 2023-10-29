@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# init variable nb_times
+nb_times=1
+# displays numbers from 1 to 20 and 
+# displays 4 and then bad luck from China for the 4th loop iteration
+# displays 9 and then bad luck from Japan for the 9th loop iteration
+# displays 17 and then bad luck from Italy for the 17th loop iteration
+while [ $nb_times -le  20 ]
+do
+	case $nb_times in
+	4)
+		echo $nb_times
+		echo "bad luck from China" ;;
+	9)
+		echo $nb_times
+		echo "bad luck from Japan" ;;
+	17)
+		echo $nb_times
+		echo "bad luck from Italy" ;;
+	*)
+		echo $nb_times;;
+	esac
+	nb_times=$((nb_times + 1))
+done
