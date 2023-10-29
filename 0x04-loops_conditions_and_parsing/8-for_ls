@@ -5,7 +5,7 @@
 # Where only the part of the name after the first dash is displayed
 
 for item in *; do
-	 if [ -d "$item" ] && [[ ! "$item" == .* ]]; then
+	 if [[ "$item" != .* ]]; then
 		part_to_extract="$(echo "$item" | cut -d '-' -f 2-)"
 		echo "$part_to_extract"
 	 fi
