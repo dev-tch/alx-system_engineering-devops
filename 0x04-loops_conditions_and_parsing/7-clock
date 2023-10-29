@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# display hours from 0 to 12
+# display minutes from 1 to 59
+# init variable hour and minute
+hour=0
+minute=1
+while [ $hour -le 12 ]
+do
+	echo "Hour:" $hour
+	# init minite 
+	minute=1
+	while [ $minute -le 59 ]
+		
+	do
+		echo $minute
+		# increment minute
+		minute=$((minute + 1))
+	done
+	# increment hour 
+	hour=$((hour + 1))
+done 
