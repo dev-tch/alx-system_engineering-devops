@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bash script run infeinitely + handle signals
 file="/var/run/myscript.pid"
-if [ ! -e $file ];then
+if [ -e $file ];then
 	pid=$(cat "$file")
 	if ps -p "$pid" > /dev/null;then
 		# the script il already running 
