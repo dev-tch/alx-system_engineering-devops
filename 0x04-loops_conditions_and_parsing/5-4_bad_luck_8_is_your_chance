@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# init variable nb_times
+nb_times=1
+# while loop to display "Best School" 10 times + using if
+while [ $nb_times -le  10 ]
+do
+	if [ $nb_times -eq 4 ] 
+	then
+		echo "bad luck"
+	elif [ $nb_times -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	nb_times=$((nb_times + 1))
+done
