@@ -7,7 +7,9 @@ start_process() {
     sleep 2
   done) &
   echo $! > /var/run/my_process.pid
-  echo "manage_my_process started"
+  if [ "$1" = "start" ];then
+  	echo "manage_my_process started"
+  fi
 }
 
 stop_process() {
@@ -17,9 +19,11 @@ stop_process() {
     # Wait for the process to stop
     #wait "$PID"
     rm -f /var/run/my_process.pid
-    echo "manage_my_process stopped"
-  else
-    echo "manage_my_process is not running"
+    if [ "$1" = "stop" ];then
+    	echo "manage_my_process stopped"
+    fi
+ # else
+  #  echo "manage_my_process is not running"
   fi
 }
 
@@ -28,17 +32,17 @@ case "$1" in
     if [ -f /var/run/my_process.pid ]; then
       echo "manage_my_process is already running. Use restart to restart it."
     else
-      start_process
+      start_process "$@"
     fi
     ;;
 
   stop)
-    stop_process
+    stop_process "$@"
     ;;
 
   restart)
-    stop_process
-    start_process
+    stop_process "$@"
+    start_process "$@"
     echo "manage_my_process restarted"
     ;;
 
