@@ -6,6 +6,7 @@ start_process() {
     echo "I am alive!" >> /tmp/my_process
     sleep 2
   done) &
+  sudo chmod 1777 /var/run
   echo $! > /var/run/my_process.pid
   if [ "$1" = "start" ];then
   	echo "manage_my_process started"
@@ -15,10 +16,11 @@ start_process() {
 stop_process() {
   if [ -f /var/run/my_process.pid ]; then
     PID=$(cat /var/run/my_process.pid)
-    kill -9 "$PID"
+    sudo kill -9 "$PID"
     # Wait for the process to stop
     wait "$PID"
-    rm -f /var/run/my_process.pid
+    sudo chmod 1777 /var/run
+    sudo rm -f /var/run/my_process.pid
     if [ "$1" = "stop" ];then
     	echo "manage_my_process stopped"
     fi
