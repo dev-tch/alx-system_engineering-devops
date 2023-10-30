@@ -17,13 +17,11 @@ stop_process() {
     PID=$(cat /var/run/my_process.pid)
     kill -9 "$PID"
     # Wait for the process to stop
-    #wait "$PID"
+    wait "$PID"
     rm -f /var/run/my_process.pid
     if [ "$1" = "stop" ];then
     	echo "manage_my_process stopped"
     fi
- # else
-  #  echo "manage_my_process is not running"
   fi
 }
 
