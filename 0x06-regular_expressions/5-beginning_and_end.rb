@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-#Find the regular expression that will match the above cases
-pattern=/^h.*n$/
+# The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
+pattern=/^h.n$/
 result_match = ""
 
 if ARGV.length >= 1
