@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #Find the regular expression that will match the above cases
-pattern=/^h*n$/
+pattern=/^h.*n$/
 result_match = ""
 
 if ARGV.length >= 1
