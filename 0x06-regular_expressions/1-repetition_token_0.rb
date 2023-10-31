@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #Find the regular expression that will match the above cases
-pattern=/hbt+n/
+pattern=/hbt{2,5}n/
 result_match = ""
 
 if ARGV.length >= 1
