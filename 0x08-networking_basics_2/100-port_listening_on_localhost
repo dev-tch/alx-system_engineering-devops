@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash script that listens on port 98 on localhost
+# option l : listening mode
+# option s : source adress
+# option p : source port
+nc -l -s localhost -p 98
