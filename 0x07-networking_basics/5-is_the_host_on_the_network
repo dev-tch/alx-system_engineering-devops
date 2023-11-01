@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Bash script that pings an IP address passed as an argument
+# Accepts a string as an argument
+# Displays Usage: 5-is_the_host_on_the_network {IP_ADDRESS} if no argument passed
+
+nb_packets_to_send=5
+
+# test number of arguments 
+
+if [ "$#" -eq 0 ]; then
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+else	
+	remote=$1
+        ping -c "$nb_packets_to_send" "$remote"
+fi
