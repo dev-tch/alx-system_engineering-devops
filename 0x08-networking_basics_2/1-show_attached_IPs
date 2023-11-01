@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Write a Bash script that displays all active IPv4 IPs on the machine it’s executed on
+
+# if config ==> show networking config 
+# filter lines that conatins   "inet ip_address_value"
+
+# option E in grep : use extended regular expresions 
+# option o print only match not entire line that contains match , in seperate line
+ifconfig | grep -Eo "inet [0-9.]*" | cut -d " " -f2 
