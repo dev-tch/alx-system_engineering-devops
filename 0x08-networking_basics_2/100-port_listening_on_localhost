@@ -3,4 +3,4 @@
 # option l : listening mode
 # option s : source adress
 # option p : source port
-nc -l -s localhost -p 98
+nc -l 98
