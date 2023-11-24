@@ -1,3 +1,3 @@
-![task0](https://ibb.co/album/zNpNvg  "simple_web_stack")
+![task0](https://ibb.co/7Nd9ydx  "simple_web_stack")
 ### specifics about this infrastructure
 
