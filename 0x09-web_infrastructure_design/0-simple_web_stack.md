@@ -20,6 +20,18 @@ A CNAME record for www.footbar.com pointing to footbar.com
 #### What is the role of the web server?
 store and transfer website data upon the request of a visitor’s browser
 
-####
+#### What is the role of the application server?
+
+An application server is designed to install, operate and host applications and associated services for end users
+it enables generating dynamic templates of apps and desktops
+
+##### What is the role of the database?
+
+Databases is used for storing, maintaining and accessing any sort of data
 
 
+#### What is the server using to communicate with the computer of the user requesting the website
+
+Web browsers and servers communicate using TCP/IP. 
+Hypertext Transfer Protocol (HTTP)  is the standard application protocol 
+on top of TCP/IP supporting web browser requests and server responses
