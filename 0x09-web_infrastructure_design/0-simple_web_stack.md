@@ -30,8 +30,8 @@ it enables generating dynamic templates of apps and desktops
 Databases is used for storing, maintaining and accessing any sort of data
 
 
-#### What is the server using to communicate with the computer of the user requesting the website
+#### What is the server using to communicate with the computer of the user requesting the website?
 
-Web browsers and servers communicate using TCP/IP. 
-Hypertext Transfer Protocol (HTTP)  is the standard application protocol 
+- Web browsers and servers communicate using TCP/IP. 
+- Hypertext Transfer Protocol (HTTP)  is the standard application protocol 
 on top of TCP/IP supporting web browser requests and server responses
