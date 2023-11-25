@@ -10,20 +10,18 @@ translates human-readable domain names (for example, foobar.com) to machine-read
 
 #### What type of DNS record www is in www.foobar.com?
 
-WWW is CNAME record type  
-CNAME: stands for Canonical Name
-works as an alias and maps one name to another
-
-An A record for footbar.com pointing to the server IP 8.8.8.8
-A CNAME record for www.footbar.com pointing to footbar.com
+- WWW is CNAME record type  
+- CNAME: stands for Canonical Name , it works as an alias and maps one name to another
+- An A record for footbar.com pointing to the server IP 8.8.8.8
+- A CNAME record for www.footbar.com pointing to footbar.com
 
 #### What is the role of the web server?
 store and transfer website data upon the request of a visitor’s browser
 
 #### What is the role of the application server?
 
-An application server is designed to install, operate and host applications and associated services for end users
-it enables generating dynamic templates of apps and desktops
+- An application server is designed to install, operate and host applications and associated services for end users
+- it enables generating dynamic templates of apps and desktops
 
 ##### What is the role of the database?
 
