@@ -2,11 +2,11 @@
 ### specifics about this infrastructure
 
 #### What is a server?
-A server is a specialized computer or software system designed to provide services, data, or resources to other computers
+- A server is a specialized computer or software system designed to provide services, data, or resources to other computers
 
 #### What is the role of the domain name?
 
-translates human-readable domain names (for example, foobar.com) to machine-readable IP addresses (for example, 173.231.209.34)
+- translates human-readable domain names (for example, foobar.com) to machine-readable IP addresses (for example, 173.231.209.34)
 
 #### What type of DNS record www is in www.foobar.com?
 
@@ -25,7 +25,7 @@ store and transfer website data upon the request of a visitor’s browser
 
 ##### What is the role of the database?
 
-Databases is used for storing, maintaining and accessing any sort of data
+- Databases is used for storing, maintaining and accessing any sort of data
 
 
 #### What is the server using to communicate with the computer of the user requesting the website?
