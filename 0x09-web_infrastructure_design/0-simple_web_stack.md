@@ -33,3 +33,20 @@ store and transfer website data upon the request of a visitor’s browser
 - Web browsers and servers communicate using TCP/IP. 
 - Hypertext Transfer Protocol (HTTP)  is the standard application protocol 
 on top of TCP/IP supporting web browser requests and server responses
+
+### issues are with this infrastructure
+
+1. Single Point of Failure (SPOF):
+
+one malfunction or fault on server  causes the whole system to stop working
+
+2. Downtime when maintenance needed
+
+When performing maintenance tasks, such as deploying new code that requires restarting the web server
+there will be downtime
+
+3. Limited Scalability
+
+it can not handle increased customer demand and larger workloads
+
+
