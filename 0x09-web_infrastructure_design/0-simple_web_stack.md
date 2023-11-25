@@ -1,4 +1,4 @@
-![task0](https://i.postimg.cc/TPKwJRD2/0-simple-web-stack.png  "simple_web_stack")
+![task0](https://i.postimg.cc/pX5jYbgB/0-simple-web-stack.png  "simple_web_stack")
 ### specifics about this infrastructure
 
 #### What is a server?
