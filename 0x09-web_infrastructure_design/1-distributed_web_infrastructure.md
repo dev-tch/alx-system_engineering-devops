@@ -55,7 +55,7 @@ The Primary node is responsible for all the write operations the site needs
 Replica node is capable of processing read operations
 ```
 
-### issues are with this infrastructure
+### issues with this infrastructure
 
 1. Single Points of Failure(SPOF)
 
