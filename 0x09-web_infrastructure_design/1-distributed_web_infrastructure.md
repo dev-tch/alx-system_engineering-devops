@@ -67,7 +67,8 @@ No Firewall ==>  the servers are vulnerable to unauthorized access
 
 No HTTPS  ==> no encryption , confidential data are exposed  to hackers
 
-3. No Monitoring 
+3. No Monitoring
+ 
 no way to track  performance issues or potential security threats
 
 
