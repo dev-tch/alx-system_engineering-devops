@@ -64,6 +64,7 @@ echec of load balancer ==> the entire system stop working
 2. Security Issues
 
 No Firewall ==>  the servers are vulnerable to unauthorized access
+
 No HTTPS  ==> no encryption , confidential data are exposed  to hackers
 
 3. No Monitoring 
