@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+ip="3.90.84.142"
+ssh -i ~/.ssh/school ubuntu@"$ip"
