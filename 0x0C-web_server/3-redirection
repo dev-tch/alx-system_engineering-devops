@@ -3,6 +3,34 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" > sudo /var/www/html/index.nginx-debian.html
-my_str="listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}"
-sudo sed -i "s/listen 80 default_server;/$my_str/" /etc/nginx/sites-enabled/default
+sudo chmod -R 755 /var/www
+# best practice to create a backup config before modification
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_backup
+
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+CONF=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+  location /redirect_me {
+    return 301 https://www.techtarget.com/whatis/definition/server;
+  }
+}"
+
+echo -e "$CONF" | sudo tee /etc/nginx/sites-available/redirect_config
+
+# create link 
+sudo ln -s /etc/nginx/sites-available/redirect_config /etc/nginx/sites-enabled/
+
+
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+  service nginx start
+else
+	service nginx restart
+fi
