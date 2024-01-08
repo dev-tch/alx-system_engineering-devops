@@ -10,7 +10,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 
 #custom 404 page
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+echo -e "Ceci n'est pas une page\n" | sudo tee /var/www/html/404.html
 
 CONF=\
 "server {
