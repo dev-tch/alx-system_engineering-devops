@@ -27,8 +27,8 @@ echo -e "$CONF" | sudo tee /etc/nginx/sites-available/redirect_config
 
 # ovoid duplicate default server block
 
-sudo rm /etc/nginx/sites-enabled/default
-
+# sudo rm /etc/nginx/sites-enabled/default
+sudo rm /etc/nginx/sites-enabled/default 2>/dev/null
 # create link
 sudo ln -s /etc/nginx/sites-available/redirect_config /etc/nginx/sites-enabled/
 
