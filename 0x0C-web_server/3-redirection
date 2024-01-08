@@ -3,6 +3,6 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" > sudo /var/www/html/index.html
-sed -i "37i\rewrite ^/redirect_me https://www.techtarget.com/whatis/definition/Web-server permanent;" /etc/nginx/sites-available/default
-sudo service nginx start
+echo "Hello World!" > sudo /var/www/html/index.nginx-debian.html
+my_str="listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/;\\n\\t}"
+sudo sed -i "s/listen 80 default_server;/$my_str/" /etc/nginx/sites-enabled/default
