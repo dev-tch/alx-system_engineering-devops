@@ -10,14 +10,14 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 CONF=\
 "server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
   location /redirect_me {
     return 301 https://www.techtarget.com/whatis/definition/server;
   }
@@ -26,15 +26,19 @@ CONF=\
 echo -e "$CONF" | sudo tee /etc/nginx/sites-available/redirect_config
 
 # ovoid duplicate default server block
-
-# sudo rm /etc/nginx/sites-enabled/default
-sudo rm /etc/nginx/sites-enabled/default 2>/dev/null
+if [ -e /etc/nginx/sites-enabled/default ]; then
+  sudo rm /etc/nginx/sites-enabled/default
+fi
 # create link
-sudo ln -s /etc/nginx/sites-available/redirect_config /etc/nginx/sites-enabled/
+if [ ! -e /etc/nginx/sites-enabled/redirect_config ]; then
+  sudo ln -s /etc/nginx/sites-available/redirect_config /etc/nginx/sites-enabled/
+fi
 
 
 if [ "$(pgrep -c nginx)" -le 0 ]; then
-  service nginx start
+  sudo service nginx start
 else
-	service nginx restart
+  # sudo -S service nginx restart <<< "ubuntu"
+  sudo service nginx restart
 fi
+
