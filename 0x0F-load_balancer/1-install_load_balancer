@@ -8,7 +8,12 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg_backup
 
 # Define HAProxy configuration
 CONF=\
-"frontend http_front
+"defaults
+    mode http
+    timeout client 10s
+    timeout connect 5s
+    timeout server 10s
+frontend http_front
     bind *:80
     stats uri /haproxy?stats
     default_backend http_back
@@ -24,9 +29,9 @@ echo -e "$CONF" | sudo tee /etc/haproxy/haproxy.cfg
 
 # restart to apply changes
 if [ "$(pgrep -c haproxy)" -le 0 ]; then
-  sudo service haproxy restart
-else
   sudo service haproxy start
+else
+  sudo service haproxy restart
 fi
 # HAProxy can be managed via init script
 sudo systemctl enable haproxy
