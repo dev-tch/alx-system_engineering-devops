@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# script to show info about domain or subdomain
+get_info_domain(){
+  sub_dom_array=("www" "lb-01" "web-01" "web-02")
+  msg="The subdomain %s is a %s record and points to %s\n"
+  for subdom in "${sub_dom_array[@]}"; do
+    dig "$subdom.$1" | sed 's/\s\+/:/g' | awk  -F ':' -v subdom="$subdom" -v out="$msg" '$1 ~ "^"subdom {printf out,subdom,$4,$5}'
+  done
+}
+
+get_info_sub_domain() {
+  msg="The subdomain %s is a %s record and points to %s\n"
+  dig "$2.$1" | sed 's/\s\+/:/g' | awk  -F ':' -v subdom="$2" -v out="$msg" '$1 ~ "^"subdom {printf out,subdom,$4,$5}'
+}
+if [[ "$#" -eq 1 ]];then
+  get_info_domain "$1"
+fi
+
+if [[ "$#" -ge 2 ]];then 
+  get_info_sub_domain "$1" "$2"
+fi
