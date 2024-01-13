@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy on your lb-01 server
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo ufw allow 80
+sudo ufw allow 443
+# Configure HAProxy
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg_backup
+
+# Define HAProxy configuration
+CONF=\
+"
+global
+    maxconn 2048
+    tune.ssl.default-dh-param 2048
+defaults
+    mode http
+    timeout client 10s
+    timeout connect 5s
+    timeout server 10s
+    option forwardfor
+    option http-server-close
+frontend www-http
+   bind *:80
+   http-request add-header X-Forwarded-Proto http
+   default_backend www-backend
+frontend www-https
+   bind *:443 ssl crt /etc/haproxy/certs/www.devtch.tech.pem
+   http-request add-header X-Forwarded-Proto https
+   acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+   use_backend letsencrypt-backend if letsencrypt-acl
+   default_backend www-backend
+backend www-backend
+    redirect scheme https if !{ ssl_fc }
+    balance roundrobin
+    server 440027-web-01 34.201.164.31:80 check
+    server 440027-web-02 54.197.101.238:80 check
+backend letsencrypt-backend
+   server letsencrypt 127.0.0.1:8888
+"
+
+# Write configuration to a new file
+echo -e "$CONF" | sudo tee /etc/haproxy/haproxy.cfg
+
+# restart to apply changes
+if [ "$(pgrep -c haproxy)" -le 0 ]; then
+  sudo service haproxy start
+else
+  sudo service haproxy restart
+fi
+# HAProxy can be managed via init script
+#sudo systemctl enable haproxy
+
