@@ -28,13 +28,14 @@ echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
 #sudo service nginx restart
 # verif the new listening port 
 #echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
-if sudo nginx -t -c /etc/nginx/sites-enabled/default; then
-  sudo service nginx restart 
-  echo "server restarted with success" | sudo tee -a /debug/netinfo.txt
-else
-  echo "echec restart server" | sudo tee -a /debug/netinfo.txt
-  #echo "$config" | sudo -a tee /debug/netinfo.txt
-fi
+#if sudo nginx -t -c /etc/nginx/sites-enabled/default; then
+sudo service nginx restart
+sudo cat "/var/log/nginx/error.log" | sudo tee -a /debug/netinfo.txt
+echo "after cat log" | sudo tee -a /debug/netinfo.txt
+#else
+#  echo "echec restart server" | sudo tee -a /debug/netinfo.txt
+#echo "$config" | sudo -a tee /debug/netinfo.txt
+#fi
 
 #echo "$config" | sudo -a tee /debug/netinfo.txt
 # restart the server after modification
