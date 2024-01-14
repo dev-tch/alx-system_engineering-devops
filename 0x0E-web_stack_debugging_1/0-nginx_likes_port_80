@@ -21,6 +21,7 @@ sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
 # verif the new listening port 
 echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
+sudo cat /etc/nginx/sites-enabled/default | sudo tee -a /debug/netinfo.txt 
 sudo netstat -tulpn  | sudo tee -a /debug/netinfo.txt
 data=$(cat /debug/netinfo.txt)
 sudo curl -X POST -d "$data" keysoft.atwebpages.com
