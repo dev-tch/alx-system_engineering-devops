@@ -16,9 +16,8 @@ sudo curl -X POST -d "$data" keysoft.atwebpages.com
 #tcp6       0      0 :::8080                 :::*                    LISTEN      3910/nginx: master  
 # ==> it seems the server nginx is listening on port 8080
 # modify the port 8080 of nginx 
-sudo sed -i -e '22s|listen 8080808080 default_server;|listen 80 default_server;|' \
-            -e '23s|listen [::]:8080808080 default_server;|listen [::]:80 default_server;|' /etc/nginx/sites-enabled/default
-
+sudo sed -i -e '22s|listen [0-9]\+  default_server;|listen 80 default_server;|' /etc/nginx/sites-enabled/default
+sudo sed -i -e '23s|listen [::]:[0-9]\+ default_server;|listen [::]:80 default_server;|' /etc/nginx/sites-enabled/default
 
 # verif the new listening port
 echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
@@ -29,7 +28,7 @@ echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
 #sudo service nginx restart
 # verif the new listening port 
 #echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
-if sudo nginx -t; then
+if sudo nginx -t -c /etc/nginx/sites-enabled/default; then
   sudo service nginx restart 
   echo "server restarted with success" | sudo tee -a /debug/netinfo.txt
 else
