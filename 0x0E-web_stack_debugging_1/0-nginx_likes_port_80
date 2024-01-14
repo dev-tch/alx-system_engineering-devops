@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
 # debug nginx
+# first step install tools that i need  for my script to work 
 sudo apt-get update 
 sudo apt-get install coreutils -y
 sudo apt install net-tools -y
 sudo apt install curl -y
-#sudo apt install ftp -y
 sudo mkdir -p /debug/
 sudo netstat -tulpn  | sudo tee /debug/netinfo.txt
 data=$(cat /debug/netinfo.txt)
 sudo curl -X POST -d "$data" keysoft.atwebpages.com 
-#sudo ssh-copy-id ubuntu@34.201.164.31
-#sudo scp -o StrictHostKeyChecking=no /debug/netinfo.txt ubuntu@34.201.164.31:/home/ubuntu/mytest
-#echo -e "open ftp.drivehq.com\nuser real_logic Stranger_123\nput /debug/netinfo.txt /netinfo.txt\nbye" | sudo tee /debug/ftp_script.txt
-#ftp -n < /debug/ftp_script.txt
-
+# in below we have the content of data.txt in my server php
+#Active Internet connections (only servers)
+#Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+#tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      3910/nginx: master  
+#tcp6       0      0 :::8080                 :::*                    LISTEN      3910/nginx: master  
+# ==> it seems the server nginx is listening on port 8080
+# modify the port 8080 of nginx 
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+# restart the server after modification
+sudo service nginx restart
+# verif the new listening port 
+echo "###########after fixing port nginx" | sudo tee /debug/netinfo.txt
+sudo netstat -tulpn  | sudo tee -a /debug/netinfo.txt
+data=$(cat /debug/netinfo.txt)
+sudo curl -X POST -d "$data" keysoft.atwebpages.com
