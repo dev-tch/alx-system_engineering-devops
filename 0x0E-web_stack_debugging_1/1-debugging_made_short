@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # short script to change port nginx to 80
-sudo sed -i -e '22s|listen [0-9]\+ default_server;|listen 80 default_server;|' /etc/nginx/sites-enabled/default
-sudo sed -i -e '23s|listen \[::\]:[0-9]\+ default_server;|listen [::]:80 default_server;|' /etc/nginx/sites-enabled/default
+sudo sed -i -e '22s|listen [0-9]\+ default_server|listen 80 default_server|' /etc/nginx/sites-enabled/default
+sudo sed -i -e '23s|listen \[::\]:[0-9]\+ default_server|listen [::]:80 default_server|' /etc/nginx/sites-enabled/default
 pkill -1 nginx
