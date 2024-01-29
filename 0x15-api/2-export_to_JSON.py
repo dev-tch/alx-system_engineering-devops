@@ -14,7 +14,7 @@ def export_json(id_user, name_user, tasks):
     mytasks = []
     for task in tasks:
         title = task.get("title")
-        status = str(task.get("completed"))
+        status = task.get("completed")
         # fill and format taks user
         mytasks.append({
                         "task": title,
