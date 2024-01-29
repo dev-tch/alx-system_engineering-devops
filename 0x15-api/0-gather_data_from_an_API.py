@@ -2,9 +2,9 @@
 """
 module to gather infos API
 """
-from requests import get
 from sys import argv
 from sys import exit
+from requests import get
 
 
 if __name__ == "__main__":
