@@ -28,7 +28,7 @@ if __name__ == "__main__":
     api_user = "{}/users/{}".format(url, id_user)
     res = get(api_user)
     if res.status_code == 200:
-        user_name = res.json().get("name")
+        user_name = res.json().get("username")
         # search tasks of user
         api_tasks = "{}/todos".format(api_user)
         res = get(api_tasks)
