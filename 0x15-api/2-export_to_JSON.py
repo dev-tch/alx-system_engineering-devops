@@ -22,7 +22,7 @@ def export_json(id_user, name_user, tasks):
                         "username": name_user
                        })
     with open(filename, mode='w') as f:
-        dump({"USER_ID": mytasks}, f)
+        dump({id_user: mytasks}, f)
 
 
 if __name__ == "__main__":
