@@ -2,27 +2,21 @@
 """
 module to gather infos API
 """
+from csv import writer, QUOTE_ALL
 from requests import get
 from sys import argv
 from sys import exit
 
 
-def quote(value):
-    '''add double quotes to value of variable'''
-    return '"' + value + '"'
-
-
 def export_csv(id_user, name_user, tasks):
     ''' export rest api to csv '''
     filename = "{}.csv".format(id_user)
-    with open(filename, 'w') as f:
+    with open(filename, mode='w') as f:
+        wr_csv = writer(f, delimiter=',', quotechar='"', quoting=QUOTE_ALL)
         for task in tasks:
-            title = quote(task.get("title"))
-            status = quote(str(task.get("completed")))
-            idy = quote(id_user)
-            name = quote(name_user)
-            line = "{},{},{}{}\n".format(idy, name, status, title)
-            f.write(line)
+            title = task.get("title")
+            status = str(task.get("completed"))
+            wr_csv.writerow([id_user, name_user, status, title])
 
 
 if __name__ == "__main__":
