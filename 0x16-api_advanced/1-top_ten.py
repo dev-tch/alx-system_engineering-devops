@@ -14,6 +14,8 @@ def top_ten(subreddit):
               }
     try:
         res = requests.get(url, headers=headers)
+        if res.status_code != 200:
+            raise Exception("Ressource Not found")
         json_obj = res.json()
         item_data = json_obj.get("data", None)
         if item_data is None:
