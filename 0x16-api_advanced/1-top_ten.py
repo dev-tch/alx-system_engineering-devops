@@ -7,7 +7,7 @@ import requests
 
 def top_ten(subreddit):
     """return top subredit top 10"""
-    url = "https://www.reddit.com/r/{}/hot.json?limit=9".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {
               'User-Agent':
               'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
