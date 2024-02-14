@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# verify setup datadog
+DD_API_KEY=9e1adb57cd0569e0de4b4b14099daa2a
+DD_APP_KEY=2b9f544bfc1520630268a137551df78140f5121d
+curl -X GET "https://api.datadoghq.com/api/v1/hosts" \
+-H "Accept: application/json" \
+-H "DD-API-KEY: ${DD_API_KEY}" \
+-H "DD-APPLICATION-KEY: ${DD_APP_KEY}"
+
