@@ -7,9 +7,11 @@ import requests
 
 def top_ten(subreddit):
     """return top subredit top 10"""
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {'User-Agent': 'My-User-Agent'}
-    res = requests.get(url, headers=headers, allow_redirects=False)
+    params = {'limit': 10}
+    res = requests.get(url, headers=headers,
+                       params=params, allow_redirects=False)
     if not res.ok:
         print('None')
     else:
