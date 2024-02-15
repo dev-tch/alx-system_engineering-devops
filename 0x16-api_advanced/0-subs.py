@@ -12,19 +12,7 @@ def number_of_subscribers(subreddit):
               'User-Agent':
               'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
               }
-    try:
-        res = requests.get(url, headers=headers, allow_redirects=False)
-        if res.status_code >= 300:
-            return 0
-        json_obj = res.json()
-        item_data = json_obj.get("data", None)
-        if item_data is None:
-            return 0
-        else:
-            item_sub = item_data.get("subscribers")
-            if item_sub is None:
-                return 0
-            else:
-                return item_sub
-    except Exception as e:
+    res = requests.get(url, headers=headers, allow_redirects=False)
+    if res.status_code >= 300:
         return 0
+    return res.json().get("data").get("subscribers")
