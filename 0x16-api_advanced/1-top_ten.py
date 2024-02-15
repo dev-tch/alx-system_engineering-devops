@@ -12,7 +12,7 @@ def top_ten(subreddit):
     params = {'limit': 10}
     res = requests.get(url, headers=headers,
                        params=params, allow_redirects=False)
-    if not res.ok:
+    if res.status_code >= 400:
         print('None')
     else:
         [print(child.get("data").get("title"))
