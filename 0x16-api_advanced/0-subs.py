@@ -1,14 +1,20 @@
 #!/usr/bin/python3
-"""extract information for api  reddit"""
+"""
+Queries the Reddit API and returns the number of total subscribers for a given
+subreddit.
+"""
+import requests
 
 
 def number_of_subscribers(subreddit):
-    """return the number of subscribers"""
-    import requests
-
-    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-    headers = {'User-Agent': 'My-User-Agent'}
-    res = requests.get(url, headers=headers, allow_redirects=False)
-    if not res.status_code.ok:
+    """
+    Queries the Reddit API and returns the number of total subscribers for a
+    given subreddit.
+    """
+    url = 'http://www.reddit.com/r/{}/about.json'.format(subreddit)
+    headers = {'User-Agent': 'Python/1.0(ALX School 0x16 task 0)'}
+    response = requests.get(url, headers=headers)
+    if (not response.ok):
         return 0
-    return res.json().get('data').get('subscribers')
+    subscriber_count = response.json().get('data').get('subscribers')
+    return subscriber_count
