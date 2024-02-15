@@ -13,8 +13,8 @@ def number_of_subscribers(subreddit):
               'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
               }
     try:
-        res = requests.get(url, headers=headers)
-        if res.status_code != 200:
+        res = requests.get(url, headers=headers, allow_redirects=False)
+        if res.status_code >= 300:
             return 0
         json_obj = res.json()
         item_data = json_obj.get("data", None)
