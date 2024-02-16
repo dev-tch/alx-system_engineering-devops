@@ -13,6 +13,8 @@ def number_of_subscribers(subreddit):
     given subreddit.
     """
 
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
     url = 'http://www.reddit.com/r/{}/about.json'.format(subreddit)
     headers = {'User-Agent': 'Python/1.0(ALX School 0x16 task 0)'}
     response = get(url, headers=headers, allow_redirects=False)
