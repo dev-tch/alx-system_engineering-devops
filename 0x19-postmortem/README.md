@@ -28,8 +28,8 @@ we have our own project called RET , for any new feature we make lots of test be
 we merge the code into trunk and create  a new version so we can deliver it 
 the  problem there is other team has own project called SEC and it also merge its own code into common trunk 
 ### Corrective and Preventive Measures
-before any delivery of  new version we must lunch a system called ATS ( testing possibility of regression ) 
+- before any delivery of  new version we must lunch a system called ATS ( testing possibility of regression ) 
 to verify the system works as expected ( it is a  suite of automate test cases )
-we also  enhance the communication between teams (RET and SEC) by mail to inform any commit on common trunk  
+- we also  enhance the communication between teams (RET and SEC) by mail to inform any commit on common trunk  
 
 
