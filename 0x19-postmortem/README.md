@@ -24,9 +24,10 @@ but never changer the declration of imprime_etiquette
 - 12:00 FR: the patch was validated and the impression works correctly 
 
 ### Root Cause and Resolution
-we have our own project called RET , for any new feature we make lots of test before deliver our code to the quality testing
-we merge the code into trunk and create  a new version so we can deliver it 
-the  problem there is other team has own project called SEC and it also merge its own code into common trunk 
+- we have our own project called RET
+- for any new feature we make lots of test before deliver our code to the quality testing
+- we merge the code into trunk and create  a new version so we can deliver it
+- the  problem there is other team has own project called SEC and it also merge its own code into common trunk 
 ### Corrective and Preventive Measures
 - before any delivery of  new version we must lunch a system called ATS ( testing possibility of regression ) 
 to verify the system works as expected ( it is a  suite of automate test cases )
