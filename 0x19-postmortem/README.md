@@ -1,3 +1,4 @@
+![logo project Postmortem.](https://github.com/dev-tch/alx-system_engineering-devops/blob/master/0x19-postmortem/wms-print.png)
 #### Bug report for software called Logistar used in industry WMS
 
 ### Summary: 
