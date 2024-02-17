@@ -7,7 +7,7 @@ on fevrier 01/02/2018 ; in  warehouse management system, the impression of etiqu
 
 - 00:00 FR: the operator in WMS can not print new etiquette for the preparation support 
 
-- 08:00 FR: view the logrun of  function responisble of print new  etiquette 
+- 08:00 FR: view the logrun of  function responisble of printing new  etiquette 
 
 ==> we find and error raised by the languague of programming (progress openedge 4gl)
 ==> error: 'Mismatched parameter types passed to procedure imprime_etiquette. (3230) '
