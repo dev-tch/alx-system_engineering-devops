@@ -15,9 +15,9 @@ on fevrier 01/02/2018 ; in  warehouse management system, the impression of etiqu
 - 08:30 FR: in my workspace i search all occuremnces of the keyword  'imprime_etiquett'
 - 09:35 FR: i found 5 calls in 5 programms , then i count the number of prameters used in call
 and the number of parameters used in declaration of procedure imrprime_etiquette
-- 09:00 FR: i found a difference of number of prameters between the call and the declration
+- 09:00 FR: i found a difference of number of prameters between the call and the declaration
 - 09:10 FR: i started consulting the log history of svn for the program that cause the problem
-- 09:30 FR: i find a commit (merge of other project in the tunk ) it added an in new param in the calling
+- 09:30 FR: i find a commit (merge of other project in the tunk ) it added an in new parameter in the calling
 but never changer the declration of imprime_etiquette 
 - 10:00 FR: i fixed the problem by adding the new parameter in the declaration procedure 'imprime_etiquette'
 - 10:00 FR: i deliver new patch to the prod 
