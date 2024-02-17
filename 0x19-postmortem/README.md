@@ -9,7 +9,7 @@ on fevrier 01/02/2018 ; in  warehouse management system, the impression of etiqu
 
 - 08:00 FR: view the logrun of  function responisble of printing new  etiquette 
 
-==> we find and error raised by the languague of programming (progress openedge 4gl)
+==> i found an error raised by the programming languague  (progress openedge 4gl)
 ==> error: 'Mismatched parameter types passed to procedure imprime_etiquette. (3230) '
 
 - 08:30 FR: in my workspace i search all occuremnces of the keyword  'imprime_etiquett'
