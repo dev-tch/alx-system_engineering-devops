@@ -1,9 +1,9 @@
-####Incident report for bug in software called Logistar used in industry WMS
+#### Bug report for software called Logistar used in industry WMS
 
-###Summary: 
+### Summary: 
 on fevrier 01/02/2018 ; in  warehouse management system, the impression of etiquette, is not working.
 
-###Timeline
+### Timeline
 
 00:00 FR: the operator in WMS can not print new etiquette for the preparation support 
 08:00 FR: view the logrun of  function responisble of print new  etiquette 
