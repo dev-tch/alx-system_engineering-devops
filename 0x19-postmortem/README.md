@@ -5,20 +5,23 @@ on fevrier 01/02/2018 ; in  warehouse management system, the impression of etiqu
 
 ### Timeline
 
-00:00 FR: the operator in WMS can not print new etiquette for the preparation support 
-08:00 FR: view the logrun of  function responisble of print new  etiquette 
-==> wez find and error raised by the languague of programming (progress openedge 4gl)
-error: 'Mismatched parameter types passed to procedure imprime_etiquette. (3230) '
-08:30 FR: in my workspace i search all occuremnces of the keyword  'imprime_etiquett'
-09:35 FR: i found 5 calls in 5 programms , then i count the number of prameters used in call
+- 00:00 FR: the operator in WMS can not print new etiquette for the preparation support 
+
+- 08:00 FR: view the logrun of  function responisble of print new  etiquette 
+
+==> we find and error raised by the languague of programming (progress openedge 4gl)
+==> error: 'Mismatched parameter types passed to procedure imprime_etiquette. (3230) '
+
+- 08:30 FR: in my workspace i search all occuremnces of the keyword  'imprime_etiquett'
+- 09:35 FR: i found 5 calls in 5 programms , then i count the number of prameters used in call
 and the number of parameters used in declaration of priocedure imrprime_etiquette
-09:00 FR: i found a difference of number of prameters between the call and the declration
-09:10 FR: i started consulting the log history of svn for the program that cause the problem
-09:30 FR: i find a commit (merge of other project in the tunk ) it added an in new param in the calling
+- 09:00 FR: i found a difference of number of prameters between the call and the declration
+- 09:10 FR: i started consulting the log history of svn for the program that cause the problem
+- 09:30 FR: i find a commit (merge of other project in the tunk ) it added an in new param in the calling
 but never changer the declration of imprime_etiquette 
-10:00 FR: i fixed the problem by adding the new parameter in the declaration procedure 'imprime_etiquette'
-10:00 FR: i deliver new patch to the prod 
-12:00 FR: the patch was validated and the impression works correctly 
+- 10:00 FR: i fixed the problem by adding the new parameter in the declaration procedure 'imprime_etiquette'
+- 10:00 FR: i deliver new patch to the prod 
+- 12:00 FR: the patch was validated and the impression works correctly 
 
 ### Root Cause and Resolution
 we have our own project called RET , for any new feature we make lots of test beffore deliver our code to the quality testing
